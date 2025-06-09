@@ -16,27 +16,6 @@ st.set_page_config(
 # CSS
 st.markdown("""
 <style>
-.body {
-    background-color: #0e1117;
-    color: #fafafa;
-}
-.stApp {
-    background-color: #0e1117;
-    color: #fafafa;
-}
-. stMetric {
-    color: #fafafa;
-}
-[class*="st-emotion-cache"] {
-    color: #fafafa !important;
-}
-.stAppHeader  {
-    background-color: #0e1117;
-}
-.main .block-container {
-    background-color: #0e1117;
-    padding-top: 2rem;
-}
 .main-header {
     font-size: 3rem;
     color: #1f77b4;
@@ -60,10 +39,6 @@ st.markdown("""
     border-left: 5px solid #1f77b4;
     padding: 1rem;
     margin: 1rem 0;
-}
-.div {
-    background-color: #222429;
-    color: #fafafa;
 }
 </style>
 """, unsafe_allow_html=True)
