@@ -16,6 +16,27 @@ st.set_page_config(
 # CSS
 st.markdown("""
 <style>
+.body {
+    background-color: #0e1117;
+    color: #fafafa;
+}
+.stApp {
+    background-color: #0e1117;
+    color: #fafafa;
+}
+. stMetric {
+    color: #fafafa;
+}
+[class*="st-emotion-cache"] {
+    color: #fafafa !important;
+}
+.stAppHeader  {
+    background-color: #0e1117;
+}
+.main .block-container {
+    background-color: #0e1117;
+    padding-top: 2rem;
+}
 .main-header {
     font-size: 3rem;
     color: #1f77b4;
@@ -35,9 +56,14 @@ st.markdown("""
 }
 .insight-box {
     background-color: #222429;
+    color: #fafafa;
     border-left: 5px solid #1f77b4;
     padding: 1rem;
     margin: 1rem 0;
+}
+.div {
+    background-color: #222429;
+    color: #fafafa;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -92,7 +118,7 @@ if scatter_data is not None:
     
     # INTRODUCCIÓN
     st.markdown("""
-    <div class="insight-box">
+    <div style="color: #fafafa;" class="insight-box">
     <h4>⚔️ El Problema</h4>
     En el mundo de los videojuegos, encontrar consenso entre críticos y jugadores puede ser tan desafiante 
     como encender una hoguera en territorio hostil. Con cada nuevo título se hace presente una brecha entre 
@@ -127,7 +153,14 @@ if scatter_data is not None:
         )
         fig_hist.add_vline(x=0, line_dash="dash", line_color="black", 
                           annotation_text="Equilibrio Perfecto")
-        fig_hist.update_layout(height=500)
+        fig_hist.update_layout(height=500,
+            plot_bgcolor='#0e1117',
+            paper_bgcolor='#0e1117',
+            font_color='#fafafa',
+            title_font_color='#fafafa',
+            legend=dict(
+                font=dict(color='#fafafa')
+            ))
         st.plotly_chart(fig_hist, use_container_width=True)
     
     with col2:
@@ -151,7 +184,14 @@ if scatter_data is not None:
                 'hidden_gem': '#6d001e'
             }
         )
-        fig_pie.update_layout(height=500)
+        fig_pie.update_layout(height=500,
+            plot_bgcolor='#0e1117',
+            paper_bgcolor='#0e1117',
+            font_color='#fafafa',
+            title_font_color='#fafafa',
+            legend=dict(
+                font=dict(color='#fafafa')
+            ))
         st.plotly_chart(fig_pie, use_container_width=True)
     
     # SECCIÓN 2: ANÁLISIS POR GÉNEROS
@@ -182,7 +222,14 @@ if scatter_data is not None:
         fig_genre.update_layout(
             height=600, 
             yaxis={'categoryorder':'array', 'categoryarray': genre_sorted['genre_name'].tolist()},
-            xaxis={'zeroline': True, 'zerolinecolor': 'black', 'zerolinewidth': 2}
+            xaxis={'zeroline': True, 'zerolinecolor': 'black', 'zerolinewidth': 2},
+            plot_bgcolor='#0e1117',
+            paper_bgcolor='#0e1117',
+            font_color='#fafafa',
+            title_font_color='#fafafa',
+            legend=dict(
+                font=dict(color='#fafafa')
+            )
         )
         
         # Personalizar hover
@@ -305,7 +352,15 @@ if scatter_data is not None:
         name="Equilibrio Perfecto"
     )
     
-    fig_scatter.update_layout(height=600)
+    fig_scatter.update_layout(height=600,
+            plot_bgcolor='#0e1117',
+            paper_bgcolor='#0e1117',
+            font_color='#fafafa',
+            title_font_color='#fafafa',
+            legend=dict(
+                font=dict(color='#fafafa')
+            )
+        )
     st.plotly_chart(fig_scatter, use_container_width=True)
     
     # SECCIÓN 4: CASOS EXTREMOS
@@ -383,20 +438,16 @@ if scatter_data is not None:
                 labels=dict(x="Año", y="Género", color="Discrepancia"),
                 color_continuous_scale="RdYlBu_r"
             )
-            fig_heatmap.update_layout(height=600)
+            fig_heatmap.update_layout(height=600,
+                plot_bgcolor='#0e1117',
+                paper_bgcolor='#0e1117',
+                font_color='#fafafa',
+                title_font_color='#fafafa',
+                legend=dict(
+                    font=dict(color='#fafafa')
+                )
+            )
             st.plotly_chart(fig_heatmap, use_container_width=True)
-            
-            # # Mejorar el hover
-            # fig_heatmap.update_traces(
-            #     hovertemplate='<b>%{y}</b><br>Año: %{x}<br>Discrepancia: %{z:.2f}<extra></extra>'
-            # )
-            
-            # fig_heatmap.update_layout(
-            #     height=min(600, max(300, len(selected_genres_heatmap) * 30)),  # Altura dinámica
-            #     xaxis={'title': 'Año'},
-            #     yaxis={'title': 'Género'}
-            # )
-            # st.plotly_chart(fig_heatmap, use_container_width=True)
             
             # Información adicional sobre la selección
             st.info(f"Mostrando {len(filtered_temporal)} combinaciones año-género de un total de {len(temporal_data)}")
