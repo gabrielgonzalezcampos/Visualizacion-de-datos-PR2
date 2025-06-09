@@ -120,9 +120,9 @@ if scatter_data is not None:
                 'count': 'Número de Juegos'
             },
             color_discrete_map={
-                'overhyped': '#00315f', 
-                'polarizing': '#3699c3',
-                'consensus': '#f7f6f4',
+                'overhyped': '#0057ab', 
+                'polarizing': '#85c3db',
+                'consensus': '#fcfdc9',
                 'hidden_gem': '#6d001e'
             }
         )
@@ -153,9 +153,9 @@ if scatter_data is not None:
             title="Distribución por Tipo de Discrepancia",
             color='discrepancy_type',
             color_discrete_map={
-                'overhyped': '#00315f',
-                'polarizing': '#3699c3', 
-                'consensus': '#f7f6f4',
+                'overhyped': '#0057ab',
+                'polarizing': '#85c3db', 
+                'consensus': '#fcfdc9',
                 'hidden_gem': '#6d001e'
             }
         )
@@ -312,9 +312,9 @@ if scatter_data is not None:
             'discrepancy_type': 'Tipo de Discrepancia'
         },
         color_discrete_map={
-                'overhyped': '#00315f',
-                'polarizing': '#3699c3', 
-                'consensus': '#f7f6f4',
+                'overhyped': '#0057ab',
+                'polarizing': '#85c3db', 
+                'consensus': '#fcfdc9',
                 'hidden_gem': '#6d001e'
             }
     )
